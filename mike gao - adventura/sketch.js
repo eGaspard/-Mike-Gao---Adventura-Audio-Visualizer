@@ -8,13 +8,15 @@ speed = 0.01;
 
 function preload() {
 	song = loadSound("music/Mike Gao - Adventura 320kbps.mp3");
-	button = loadImage("img/play");
+	button = loadImage("img/play.svg");
 	
 }
 
 
+
 function setup() {
-	cnv = createCanvas(windowWidth,windowHeight);
+	cnv = createCanvas(window.innerWidth,window.innerHeight);
+	cnv.parent(canvasTest);
 	fft = new p5.FFT(0.9,1024);
 	amp = new p5.Amplitude(0.99);
 	
@@ -23,41 +25,61 @@ function setup() {
 	bass = new low(0,0);
 
 	scribble =  new Scribble();
-	//seed = random(512)
 	scribble.bowing = 5;          // changes the bowing of lines
 	scribble.roughness = 0.1;       // changes the roughness of lines
 	scribble.maxOffset = 2;       // coordinates will get an offset, here you define the max offset
 	scribble.numEllipseSteps = 9; // defines how much curves will be used to draw an ellipse
-	//randomSeed(seed);
-
-
 
 }
 
 	//---click on canvas play/stop-----------//
-function mouseClicked() {
-	if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
-    if (song.isPlaying() ) {
-      song.pause();
-    } else {
-      song.play();
+	function imgClicked() {
+		if (song.isPlaying() ) {
+	      song.pause();
+			var img = document.getElementById('playImg');
+	      img.style.visibility = 'visible';
+		speed=0;
+		noLoop();
+		
+																											   
+	    } else {
+	      song.play();
+		  var img = document.getElementById('playImg');
+	      img.style.visibility = 'hidden';
+		speed=0.01;
+		loop();
+			
+		}
+		
+		
+	  }
+function canvasClicked() {
+		
+		  song.stop();
+		var img = document.getElementById('playImg');
+	      img.style.visibility = 'visible';
+		speed=0;
+		noLoop();
+	
+	  }
 
-    }
-  }
-}
+
+
 
 
 function draw() {
 	clear();
 	
+	
+
+	
 	c1 = color(255,0,0);
 	c2 = color(0,255,255);
 	c3 = color(255, 170, 0)
 
-	
-
 	fft.analyze();
 	vol = amp.getLevel();
+
 
 	//----get energy level from low,mid & high frequencies----//
 	energy1 = fft.getEnergy(20,60);
@@ -130,8 +152,5 @@ function draw() {
 	other.ripples();//__ripple effect
 	pop();
 	
-	image(button,(width/2)-32,(height/2)-32)
-	
-
 }
 
