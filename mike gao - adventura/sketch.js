@@ -8,7 +8,7 @@ speed = 0.01;
 
 function preload() {
 	song = loadSound("music/Mike Gao - Adventura 320kbps.mp3");
-	button = loadImage("img/play.svg");
+	//button = loadImage("img/play.svg");
 	
 }
 
