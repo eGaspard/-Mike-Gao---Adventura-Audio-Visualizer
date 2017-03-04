@@ -107,9 +107,9 @@ function draw() {
 	textSize(25);
 	fill(255);
 	textFont("VT323");
-	text("mIKE gAO",480,height-200);
-	text("mIKE gAO",510,height-190);
-	text("mIKE gAO",520,height-180);
+	text("mIKE gAO",510,height-200);
+	text("mIKE gAO",540,height-190);
+	text("mIKE gAO",550,height-180);
 	
 
 	push();
