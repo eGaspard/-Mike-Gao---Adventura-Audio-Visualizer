@@ -33,29 +33,28 @@ function setup() {
 }
 
 	//---click on canvas play/stop-----------//
-	function imgClicked() {
-		if (song.isPlaying() ) {
-	      song.pause();
-			var img = document.getElementById('playImg');
-	      img.style.visibility = 'visible';
-		speed=0;
-		noLoop();
+function imgClicked() {
+	if (song.isPlaying() ) {
+	song.pause();
+	var img = document.getElementById('playImg');
+	img.style.visibility = 'visible';
+	speed=0;
+	noLoop();
 		
 																											   
-	    } else {
-	      song.play();
-		  var img = document.getElementById('playImg');
-	      img.style.visibility = 'hidden';
-		speed=0.01;
-		loop();
-			
-		}
-		
-		
-	  }
+	} else {
+	  song.play();
+	var img = document.getElementById('playImg');
+	img.style.visibility = 'hidden';
+	speed=0.01;
+	loop();
+	}
+	}
+
+
 function canvasClicked() {
 		
-		  song.stop();
+	song.stop();
 		var img = document.getElementById('playImg');
 	      img.style.visibility = 'visible';
 		speed=0;
@@ -64,14 +63,8 @@ function canvasClicked() {
 	  }
 
 
-
-
-
 function draw() {
 	clear();
-	
-	
-
 	
 	c1 = color(255,0,0);
 	c2 = color(0,255,255);
@@ -114,9 +107,9 @@ function draw() {
 	textSize(25);
 	fill(255);
 	textFont("VT323");
-	text("mIKE gAO",450,height-200);
-	text("mIKE gAO",470,height-190);
-	text("mIKE gAO",490,height-180);
+	text("mIKE gAO",480,height-200);
+	text("mIKE gAO",510,height-190);
+	text("mIKE gAO",520,height-180);
 	
 
 	push();
