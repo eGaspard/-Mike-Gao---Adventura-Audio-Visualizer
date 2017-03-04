@@ -46,7 +46,7 @@ function imgClicked() {
 	var img = document.getElementById('playImg');
 	img.style.visibility = 'hidden';
 	speed=0.01;
-	oop();
+	loop();
 			
 		}
 	}
@@ -112,6 +112,13 @@ function draw() {
 	text("mIKE gAO",600,height-165);
 	text("mIKE gAO",620,height-155);
 	text("mIKE gAO",640,height-145);
+	
+	textSize(15);	
+	fill(100);
+	stroke(100);
+	strokeWeight(1);
+	textFont("Courier New");	
+	text("[ click center to pause ]   [ works in chrome ]",10,height-10);
 	
 
 	push();
